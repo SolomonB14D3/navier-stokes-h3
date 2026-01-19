@@ -1,0 +1,21 @@
+# Navier-Stokes H3 Verification - Requirements
+# Tested on macOS 14+ with Apple Silicon (M1/M2/M3)
+
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+
+# MLX for Apple Silicon GPU acceleration
+# Install via: pip install mlx (requires macOS 13.3+, Apple Silicon)
+mlx>=0.0.10
+
+# Testing
+pytest>=7.0.0
+pytest-timeout>=2.0.0
+
+# Optional: Dashboard visualization
+# streamlit>=1.20.0
+
+# Note: This package requires Apple Silicon (M1/M2/M3) for MLX GPU acceleration.
+# On other platforms, modify scripts to use NumPy/CuPy instead.
