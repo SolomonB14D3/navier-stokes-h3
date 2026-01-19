@@ -1,0 +1,40 @@
+{
+  "theoretical_bound": 547,
+  "max_achieved": Infinity,
+  "ratio": Infinity,
+  "all_bounded": false,
+  "results": [
+    [
+      "Icosahedral baseline",
+      19832988.0
+    ],
+    [
+      "Anti-icosahedral",
+      Infinity
+    ],
+    [
+      "Vortex sheet collision",
+      6344631.5
+    ],
+    [
+      "Trefoil knot",
+      162974.65625
+    ],
+    [
+      "High-freq turbulence",
+      1641411.625
+    ],
+    [
+      "Concentrated core",
+      26075.94921875
+    ],
+    [
+      "Asymmetric strain",
+      8863312.0
+    ],
+    [
+      "Max non-normal",
+      Infinity
+    ]
+  ]
+}

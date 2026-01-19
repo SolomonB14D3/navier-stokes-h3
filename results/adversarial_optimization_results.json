@@ -1,0 +1,16 @@
+{
+  "theoretical_bound": 547,
+  "best_adversarial": -0.0,
+  "ratio": -0.0,
+  "results": [
+    [
+      "DE",
+      -0.0
+    ],
+    [
+      "Local",
+      -0.0
+    ]
+  ],
+  "verdict": "BOUNDED"
+}

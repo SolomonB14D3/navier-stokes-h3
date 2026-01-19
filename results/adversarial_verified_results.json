@@ -1,0 +1,40 @@
+{
+  "theoretical_bound": 547,
+  "max_achieved": 606.8472290039062,
+  "ratio": 1.109409925052845,
+  "all_bounded": false,
+  "results": [
+    [
+      "Icosahedral baseline",
+      526.727294921875
+    ],
+    [
+      "Anti-icosahedral",
+      9.39999771118164
+    ],
+    [
+      "Vortex sheets",
+      9.39999771118164
+    ],
+    [
+      "Concentrated core",
+      9.39999771118164
+    ],
+    [
+      "High-k noise",
+      9.399994850158691
+    ],
+    [
+      "Opposing tubes",
+      9.399995803833008
+    ],
+    [
+      "Max strained",
+      606.8472290039062
+    ],
+    [
+      "Random",
+      9.399993896484375
+    ]
+  ]
+}
