@@ -223,13 +223,30 @@ with the same viscosity ν (parabolic scaling preserves the diffusion coefficien
 
 ### 5.3 Rescaled Vorticity Dynamics
 
-The rescaled vorticity equation becomes:
+**Explicit Rescaled NS with H₃ Constraint:**
 
+Under the parabolic rescaling $u^\lambda(x', t') = \lambda \cdot u(x^* + \lambda x', T^* + \lambda^2 t')$:
+
+**Step 1: Rescaled momentum equation**
+$$\frac{\partial u^\lambda}{\partial t'} + (u^\lambda \cdot \nabla')u^\lambda = -\nabla' p^\lambda + \nu \Delta' u^\lambda$$
+
+The viscosity ν is **unchanged** under parabolic rescaling (both diffusion and time scale as λ²).
+
+**Step 2: Rescaled vorticity equation**
 $$\frac{\partial \omega^\lambda}{\partial t'} + (u^\lambda \cdot \nabla')\omega^\lambda = (\omega^\lambda \cdot \nabla')u^\lambda + \nu \Delta' \omega^\lambda$$
 
-With the H₃ geometric constraint (inherited from microscopic dynamics):
-
+**Step 3: With H₃ geometric constraint**
 $$\frac{\partial \omega^\lambda}{\partial t'} + (u^\lambda \cdot \nabla')\omega^\lambda = (1 - \delta_0 \Phi^\lambda)(\omega^\lambda \cdot \nabla')u^\lambda + \nu \Delta' \omega^\lambda$$
+
+**Step 4: Effective viscosity interpretation**
+
+Rearranging the depleted stretching:
+$$\frac{\partial \omega^\lambda}{\partial t'} = (\omega^\lambda \cdot \nabla')u^\lambda + \nu \Delta' \omega^\lambda - \delta_0 \Phi^\lambda (\omega^\lambda \cdot \nabla')u^\lambda$$
+
+The last term acts as **geometric dissipation** with effective viscosity contribution:
+$$\nu_{\text{eff}}^\lambda = \nu + \delta_0 \Phi^\lambda \cdot \frac{|(\omega^\lambda \cdot \nabla')u^\lambda|}{|\Delta' \omega^\lambda|}$$
+
+As λ → 0, even though ν stays fixed, the **geometric regularization remains active** because:
 
 **Key observation:** The depletion constant δ₀ = (√5-1)/4 is **scale-invariant** (it depends only on icosahedral angles, not length scales). Therefore:
 

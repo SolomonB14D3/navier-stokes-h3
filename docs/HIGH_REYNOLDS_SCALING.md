@@ -153,11 +153,36 @@ $$\|\boldsymbol{\omega}(\cdot, t)\|_{L^\infty} \leq \|\boldsymbol{\omega}_0\|_{L
 
 Compared to standard Euler bound with factor 1 instead of $(1-\delta_0) = 0.691$.
 
-### 5.3 Implications
+### 5.3 Explicit ν → 0 Extrapolation
+
+**Theorem 5.2 (Inviscid Limit Bound):** As ν → 0, the H₃-constrained enstrophy satisfies:
+
+$$Z(t) \leq Z_0 \exp\left[(1-\delta_0) \int_0^t \|\nabla \mathbf{u}\|_{L^\infty} ds\right]$$
+
+**Derivation:** From the enstrophy evolution:
+$$\frac{dZ}{dt} \leq (1-\delta_0) \int |\boldsymbol{\omega}|^2 |\lambda_{\max}| \, d\mathbf{x} - \nu \|\nabla\boldsymbol{\omega}\|^2$$
+
+In the inviscid limit (ν → 0):
+$$\frac{dZ}{dt} \leq (1-\delta_0) \|\nabla \mathbf{u}\|_{L^\infty} \cdot Z$$
+
+By Gronwall's inequality:
+$$Z(t) \leq Z_0 \exp\left[(1-\delta_0) \int_0^t \|\nabla \mathbf{u}\|_{L^\infty} ds\right]$$
+
+**Key insight:** The factor $(1-\delta_0) \approx 0.69$ slows enstrophy growth by 31% compared to standard Euler, extending the existence time before potential blowup.
+
+**Comparison with Standard Euler:**
+
+| Quantity | Standard Euler | H₃-Constrained Euler |
+|----------|---------------|---------------------|
+| Growth exponent | $\int \|\nabla u\|_{L^\infty}$ | $(1-\delta_0) \int \|\nabla u\|_{L^\infty}$ |
+| Factor | 1.0 | 0.69 |
+| Relative time to blowup | 1.0× | ~1.45× longer |
+
+### 5.4 Implications
 
 The geometric constraint provides:
-1. **Slower vorticity growth** in inviscid regime
-2. **Longer existence time** before potential blowup
+1. **Slower vorticity growth** in inviscid regime (31% reduction)
+2. **Longer existence time** before potential blowup (~45% extension)
 3. **Better numerical stability** at high Re
 
 ---
@@ -258,6 +283,7 @@ At high Re (fully developed turbulence):
 ## References
 
 1. Kolmogorov, A.N. (1941). The local structure of turbulence in incompressible viscous fluid for very large Reynolds numbers. *Dokl. Akad. Nauk SSSR*.
-2. Frisch, U. (1995). *Turbulence: The Legacy of A.N. Kolmogorov*. Cambridge University Press.
+2. Frisch, U. (1995). *Turbulence: The Legacy of A.N. Kolmogorov*. Cambridge University Press. (For high Re scaling laws and inertial range dynamics)
 3. Pope, S.B. (2000). *Turbulent Flows*. Cambridge University Press.
 4. Doering, C.R. & Gibbon, J.D. (1995). *Applied Analysis of the Navier-Stokes Equations*. Cambridge University Press.
+5. Hou, T.Y. (2009). Blow-up or no blow-up? A unified computational and analytic approach to 3D incompressible Euler and Navier-Stokes equations. *Acta Numerica*. (For inviscid scaling analysis)

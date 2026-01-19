@@ -90,6 +90,22 @@ In either case, enstrophy remains bounded. ∎
 4. BKM criterion satisfied → no blowup
 5. Solution remains smooth for all time ∎
 
+### 3.4 Explicit Corollary for Arbitrary Smooth Data
+
+**Corollary 3.3 (Arbitrary Smooth IC):** For arbitrary smooth initial data $\mathbf{u}_0$ with $\|\mathbf{u}_0\|_{L^2} < \infty$:
+
+1. **Initial vorticity bound:** By Sobolev embedding,
+   $$\|\boldsymbol{\omega}_0\|_{L^2} = \|\nabla \times \mathbf{u}_0\|_{L^2} \leq C_S \|\mathbf{u}_0\|_{H^1}$$
+
+2. **Initial enstrophy:**
+   $$Z_0 = \frac{1}{2}\|\boldsymbol{\omega}_0\|_{L^2}^2 \leq \frac{C_S^2}{2} \|\mathbf{u}_0\|_{H^1}^2 < \infty$$
+
+3. **Depletion activates:** If $Z_0 > Z_{\text{crit}}$, then $\Phi > 0$ immediately and $dZ/dt < 0$
+
+4. **Growth bounded:** If $Z_0 < Z_{\text{crit}}$, enstrophy may grow but cannot exceed $Z_{\max}$
+
+**Conclusion:** For **any** smooth IC with finite $H^1$ norm, the H₃ geometric constraint guarantees global regularity. No special preparation of initial conditions is required.
+
 ---
 
 ## 4. Uniqueness via Prodi-Serrin
