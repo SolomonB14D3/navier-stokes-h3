@@ -8,7 +8,7 @@ import numpy as np
 
 # Golden ratio: φ = (1 + √5) / 2
 # Fundamental constant of icosahedral symmetry
-PHI = (1 + np.sqrt(5)) / 2  # ≈ 1.618033988749895
+PHI = float((1 + np.sqrt(5)) / 2)  # ≈ 1.618033988749895
 
 # Depletion constant: δ₀ = (√5 - 1) / 4 = 1 / (2φ)
 # Derived from icosahedral vertex angle θ_v = arccos(1/√5) ≈ 63.43°
@@ -16,23 +16,23 @@ PHI = (1 + np.sqrt(5)) / 2  # ≈ 1.618033988749895
 #   θ_v = arccos(1/√5)
 #   tan(θ_v/2) = √((1-1/√5)/(1+1/√5)) = 1/φ
 #   δ₀ = tan(θ_v/2) / 2 = 1/(2φ) = (√5-1)/4
-DELTA_0 = (np.sqrt(5) - 1) / 4  # ≈ 0.30901699437494742
+DELTA_0 = float((np.sqrt(5) - 1) / 4)  # ≈ 0.30901699437494742
 
 # Verify algebraic identity: δ₀ = 1/(2φ)
 assert abs(DELTA_0 - 1/(2*PHI)) < 1e-15, "δ₀ identity violated"
 
 # Maximum alignment factor: A_max = 1 - δ₀
 # Theorem 3.1: The H₃ manifold bounds cos(θ) ≤ 1 - δ₀
-A_MAX = 1 - DELTA_0  # ≈ 0.691
+A_MAX = float(1 - DELTA_0)  # ≈ 0.691
 
 # Icosahedral coordination distance ratio
 # From MD simulations (H3-Hybrid-Discovery): r₁ = 1.0808σ
 # Remarkably: σ × δ₀ × φ × 2 ≈ 1.000 × 0.309 × 1.618 × 2 ≈ 1.000
-R_H3 = 0.951  # Geometric factor for activation function
+R_H3 = 0.951  # Geometric factor for activation function (Python float)
 
 # Critical vorticity threshold
 # Above this, depletion fully activates (Φ → 1)
-OMEGA_CRIT = 1.0 / (DELTA_0 * R_H3)  # ≈ 3.40
+OMEGA_CRIT = float(1.0 / (DELTA_0 * R_H3))  # ≈ 3.40
 
 # Theoretical enstrophy bound (Theorem 4.1)
 # Z_max = ((1-δ₀) × C_S / (ν × C_P))²

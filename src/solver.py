@@ -56,6 +56,8 @@ class H3NavierStokesSolver:
             config: Solver configuration. Uses defaults if None.
         """
         self.config = config or SolverConfig()
+        # Ensure delta0 is Python float (avoid numpy scalar issues with MLX)
+        self.delta0 = float(self.config.delta0)
         self._setup_grid()
         self._setup_operators()
 
@@ -78,11 +80,11 @@ class H3NavierStokesSolver:
     def _setup_operators(self):
         """Precompute operators for efficiency."""
         # Viscous decay (exact integrating factor for diffusion)
-        self.visc_decay = mx.exp(-self.config.viscosity * self.k2 * self.config.dt)
+        self.visc_decay = mx.exp(-float(self.config.viscosity) * self.k2 * float(self.config.dt))
 
         # Critical vorticity (Eq. 4.4)
-        if self.config.delta0 > 0:
-            self.omega_crit = 1.0 / (self.config.delta0 * R_H3)
+        if self.delta0 > 0:
+            self.omega_crit = float(1.0 / (self.delta0 * R_H3))
         else:
             self.omega_crit = 1e10  # Effectively infinite
 
@@ -122,13 +124,13 @@ class H3NavierStokesSolver:
         Returns:
             Depletion factor in [1-δ₀, 1] at each grid point.
         """
-        if self.config.delta0 <= 0:
+        if self.delta0 <= 0:
             return mx.ones_like(omega_mag)
 
         x = omega_mag / self.omega_crit
         # Smooth activation (Eq. 4.3)
-        activation = x**2 / (1 + x**2)
-        depletion = 1 - self.config.delta0 * activation
+        activation = x**2 / (1.0 + x**2)
+        depletion = 1.0 - self.delta0 * activation
 
         return depletion
 
@@ -270,7 +272,7 @@ class H3NavierStokesSolver:
             )
 
         # Check alignment bound (J_min should be >= 1-δ₀ = 0.691)
-        if self.config.delta0 > 0 and J_min < A_MAX - 0.01:
+        if self.delta0 > 0 and J_min < A_MAX - 0.01:
             raise BoundViolationError(
                 f"ALIGNMENT BOUND VIOLATED at t={t:.4f}: J_min={J_min:.4f} < {A_MAX:.4f}\n"
                 f"This should be impossible - check depletion implementation."
@@ -337,8 +339,8 @@ def create_solver(n=128, viscosity=0.001, constrained=True, watchdog=True):
     """
     config = SolverConfig(
         n=n,
-        viscosity=viscosity,
-        delta0=DELTA_0 if constrained else 0,
+        viscosity=float(viscosity),
+        delta0=float(DELTA_0) if constrained else 0.0,
         watchdog=watchdog
     )
     return H3NavierStokesSolver(config)

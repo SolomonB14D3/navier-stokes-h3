@@ -1,0 +1,24 @@
+{
+  "constrained_summary": {
+    "mean_exponent": 58.64508978708024,
+    "min_exponent": 1.3367782699678323
+  },
+  "theoretical": {
+    "critical_exponent": 1.5,
+    "delta0": 0.30901699437494745,
+    "subcritical_bound": 1.1909830056250525
+  },
+  "phase_analysis": {
+    "peak_Z": 736.88818359375,
+    "peak_t": 1.998,
+    "buildup_mean_exp": 1.6804869051584597,
+    "buildup_min_exp": 1.3682580897751986,
+    "buildup_n_points": 213,
+    "crisis_mean_exp": 1.3367782699678323,
+    "crisis_min_exp": 1.3367782699678323,
+    "crisis_n_points": 1,
+    "snapback_mean_exp": 2.0951897153747567,
+    "snapback_min_exp": 1.8293478097201596,
+    "snapback_n_points": 60
+  }
+}
