@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "n": 64,
+      "Z_max": 607.08,
+      "ratio_pct": 111.0,
+      "overshoot_pct": 11.0,
+      "t_at_max": 3.058
+    },
+    {
+      "n": 128,
+      "Z_max": 598.44,
+      "ratio_pct": 109.4,
+      "overshoot_pct": 9.4,
+      "t_at_max": 3.062
+    },
+    {
+      "n": 256,
+      "Z_max": 597.56,
+      "ratio_pct": 109.2,
+      "overshoot_pct": 9.2,
+      "t_at_max": 3.068
+    }
+  ],
+  "power_law": {
+    "beta": 0.12889887873382408,
+    "C": 18.381733175730233,
+    "fit": "overshoot = 18.38 * n^(-0.129)",
+    "predictions": {
+      "n=512": 8.22554338871439,
+      "n=1024": 7.522499519106492
+    },
+    "n_for_1pct": 6443690164.517916
+  },
+  "aitken_extrapolation": {
+    "asymptotic_overshoot": 9.17142857142857,
+    "asymptotic_Z_max": 597.1677142857143,
+    "note": "Aitken delta-squared extrapolation of O(n) -> O_inf"
+  },
+  "convergence_deltas": {
+    "64_to_128": 1.5999999999999996,
+    "128_to_256": 0.20000000000000107,
+    "ratio": 7.999999999999956
+  },
+  "verdict": "STALLING"
+}
